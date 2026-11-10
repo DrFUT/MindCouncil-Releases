@@ -1,0 +1,9 @@
+# 发行仓库忽略规则：只保留清单、校验文件与说明
+*.apk
+*.aab
+*.tmp
+*.part
+*.download
+.cache/
+.DS_Store
+Thumbs.db

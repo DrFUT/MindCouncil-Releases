@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "appName": "主脑议会",
+  "packageName": "com.mindcouncil.mind_council",
+  "versionName": "0.2.2",
+  "versionCode": 4,
+  "tagName": "v0.2.2",
+  "releaseName": "主脑议会 v0.2.2",
+  "publishedAt": "2026-11-10T12:00:00Z",
+  "apkAssetName": "MindCouncil-v0.2.2.apk",
+  "apkDownloadUrl": "https://github.com/DrFUT/MindCouncil-Releases/releases/download/v0.2.2/MindCouncil-v0.2.2.apk",
+  "apkSize": 54463592,
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "signingCertificateSha256": "78428665a7d626e159c428717101757feb97e70995133e15e402b953c4f51948",
+  "minSdkVersion": 24,
+  "releaseNotesUrl": "https://github.com/DrFUT/MindCouncil-Releases/releases/tag/v0.2.2",
+  "releaseNotes": "示例清单：真实文件由发布工作流生成，不要手工提交到稳定通道。"
+}
