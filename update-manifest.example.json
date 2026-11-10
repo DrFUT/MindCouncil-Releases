@@ -10,7 +10,7 @@
   "apkAssetName": "MindCouncil-v0.3.0.apk",
   "apkDownloadUrl": "https://github.com/DrFUT/MindCouncil-Releases/releases/download/v0.3.0/MindCouncil-v0.3.0.apk",
   "apkSize": 54824796,
-  "sha256": "08013e4a8fb198cea2750557ced58ee018db5681d88945c2da9346c7298dd826",
+  "sha256": "0cb0010767bd3ef15a77f21f3eff57bcbc1545628285d959989f6128be8a47e5",
   "signingCertificateSha256": "78428665a7d626e159c428717101757feb97e70995133e15e402b953c4f51948",
   "minSdkVersion": 24,
   "releaseNotesUrl": "https://github.com/DrFUT/MindCouncil-Releases/releases/tag/v0.3.0",
