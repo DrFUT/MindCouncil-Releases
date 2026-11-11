@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "appName": "主脑议会",
+  "packageName": "com.mindcouncil.mind_council",
+  "versionName": "0.5.0",
+  "versionCode": 6,
+  "tagName": "v0.5.0",
+  "releaseName": "主脑议会 v0.5.0",
+  "publishedAt": "2026-11-11T04:53:43Z",
+  "apkAssetName": "MindCouncil-v0.5.0.apk",
+  "apkDownloadUrl": "https://github.com/DrFUT/MindCouncil-Releases/releases/download/v0.5.0/MindCouncil-v0.5.0.apk",
+  "apkSize": 55414984,
+  "sha256": "a787287ef6b0a72e4a9e7a97bf3f8222fb2fa851a32195be24c964d3a8165767",
+  "signingCertificateSha256": "fa12d315895604ee9593a0d4d90ce159112f82b8b2511911a2a5682aca1c521f",
+  "minSdkVersion": 24,
+  "releaseNotesUrl": "https://github.com/DrFUT/MindCouncil-Releases/releases/tag/v0.5.0",
+  "releaseNotes": "# 主脑议会 v0.5.0\n\n**这是第一个采用独立正式 Android Release 签名证书的版本。** 证书 `CN=Mind Council Release`，RSA 3072 / SHA256withRSA，SHA-256 指纹 `fa12d315895604ee9593a0d4d90ce159112f82b8b2511911a2a5682aca1c521f`，与之前所有版本用的调试证书没有任何关系。\n\n## 从 v0.4.0 迁移：不能直接覆盖安装\n\nv0.4.0（以及 v0.3.0 及更早）用的是旧的 Debug 签名。包名相同、签名不同，Android 会直接拒绝升级，报 `INSTALL_FAILED_UPDATE_INCOMPATIBLE`。**这不是提示，是系统不会让你装上去。**\n\n四步，顺序不能颠倒：\n\n1. **在 v0.4.0 里导出备份**：档案 → 数据备份 → 导出。设一个口令（至少 8 位），把 `.mcbak` 存到手机、U 盘或网盘。\n2. **卸载 v0.4.0**。\n3. **安装 v0.5.0**（本页附件 `MindCouncil-v0.5.0.apk`）。\n4. **在 v0.5.0 里导入备份**：档案 → 数据备份 → 导入，选那个 `.mcbak`，输入同一口令。\n\n备份不含 API Key（只存在 Android 系统安全存储里），导入后需重填。从本版起，以后升级可正常覆盖。\n\n## ⚠️ 真机迁移验收尚未完成\n\n- **已完成**：加密备份的导出与导入在代码层的自动化测试全部通过（65 项），覆盖 `.mcbak` 完整性、错误口令、损坏文件、密文篡改、版本不兼容、导入中断回滚、冷启动不被重新播种。\n- **未完成**：**真实 Android 设备上的卸载、安装、导入、冷启动、异常回滚，一次都没有跑过。** 发布时手上没有可用的 Android 设备，也没有模拟器。\n- 上面那四步在真机上是否完全顺利，没有实证。可能遇到卸载残留、系统文件选择器拿不到 `.mcbak`、导入后冷启动异常等情况。\n- **用户已明确知晓并接受上述风险，本版据此授权发布。** 不愿承担风险可以继续用 v0.4.0，等真机验收完成后再升级。\n\n## 新增\n\n- **会议记录加密备份**：档案 → 数据备份。\n  - **导出**：设一个口令（至少 8 位），打包加密后交给系统「保存到…」。PBKDF2-HMAC-SHA256（21 万次迭代）+ AES-256-GCM。导出后**立刻读回来解密比对**，对不上就报失败，不会给你一个打不开的备份。**备份里没有 API Key。**\n  - **导入**：选文件 → 预览（多少议员、多少场会议、何时导出）→ 输口令 → 确认后**整体替换**。覆盖前有明确提示，完成告诉你替换了多少条。写入失败自动回滚；回滚也失败会明说「原数据未能自动恢复」。被改过、口令错、格式不对、版本更高，一律拒绝，不动现有数据。\n\n## 变更\n\n- **签名证书换成正式发布证书**：RSA 3072 / SHA256withRSA，`CN=Mind Council Release`，有效期至 2056-11-02。\n- **更新器认这张证书**：钉扎指纹换成正式证书。若本机装的是历史 debug 证书版本，更新器不再报含糊的「签名冲突」，而是明确告诉你「需要迁移」并给出步骤。\n- 数据格式**没变**：`storageKey` 仍是 `mind_council.state.v1`，`schemaVersion` 仍是 2。\n\n## 修复\n\n- 备份导入期间若 App 被系统杀掉，下次启动会先检查未完成的导入日志并尝试恢复，不再留下「写了一半」的状态。\n\n## 未改变\n\n- 默认仍是**模拟议事**；只有自己配置并切换到「真实 AI 议事」才调用大模型。\n- 议会只给建议，决定权在你；不自动付款、不发消息、不读其它 App 的数据。\n\n## 安装\n\n- 需 Android 7.0（API 24）及以上。**从旧调试签名版本升级必须先卸载**，且卸载前务必先导出加密备份。\n- 全新手机可直接安装。\n\n## 校验\n\n- `sha256sum -c SHA256SUMS.txt`\n- `apksigner verify --print-certs MindCouncil-v0.5.0.apk`\n\n签名证书 SHA-256 应为 `fa12d315895604ee9593a0d4d90ce159112f82b8b2511911a2a5682aca1c521f`。若是 `78428665…f51948`，说明拿到的是 v0.4.0（迁移中转包，故意保持旧签名以便覆盖安装）。\n",
+  "draft": false,
+  "prerelease": false
+}
