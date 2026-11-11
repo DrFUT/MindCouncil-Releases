@@ -1,1 +1,1 @@
-a787287ef6b0a72e4a9e7a97bf3f8222fb2fa851a32195be24c964d3a8165767  MindCouncil-v0.5.0.apk
+cf6127a155c2210dbbb0299bafdfaf1998a27cd47bef67b3bf0e258ac844afc3  MindCouncil-v0.5.1.apk
